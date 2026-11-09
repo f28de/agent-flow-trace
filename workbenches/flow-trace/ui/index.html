@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>智能体流转轨迹</title>
+    <link rel="stylesheet" href="/workbench-ui.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="page-header">
+        <h1>智能体流转轨迹</h1>
+        <div class="toolbar">
+          <button id="refresh" type="button">刷新</button>
+          <button id="watch-all" type="button" class="wb-primary">关注全部会话</button>
+          <span class="sep" aria-hidden="true"></span>
+          <button id="export-json" type="button">导出 JSON</button>
+          <button id="export-jsonl" type="button">导出 JSONL</button>
+          <button id="export-md" type="button">导出 Markdown</button>
+          <button id="clear" type="button" class="danger">清空记录</button>
+        </div>
+      </header>
+      <p id="error" role="alert" hidden></p>
+      <p id="notice" class="wb-muted" hidden></p>
+
+      <section class="stats" aria-label="概览统计" aria-live="polite">
+        <div class="stat"><span class="num" id="stat-agents">0</span><span class="label">智能体</span></div>
+        <div class="stat"><span class="num" id="stat-sessions">0</span><span class="label">会话总数</span></div>
+        <div class="stat"><span class="num" id="stat-watched">0</span><span class="label">已关注</span></div>
+        <div class="stat"><span class="num" id="stat-events">0</span><span class="label">事件</span></div>
+        <div class="stat"><span class="num" id="stat-artifacts">0</span><span class="label">产物</span></div>
+        <div class="stat"><span class="num" id="stat-links">0</span><span class="label">派发链接</span></div>
+      </section>
+
+      <section>
+        <h2>流转图</h2>
+        <p class="wb-muted hint">每列是一个智能体，圆点是会话，箭头是父会话派发子会话。</p>
+        <div id="graph" class="graph" aria-label="智能体流转图"></div>
+      </section>
+
+      <section>
+        <h2>关注中的会话</h2>
+        <ul id="watched" class="watched" aria-label="关注中的会话"></ul>
+      </section>
+
+      <section>
+        <h2>产物台账</h2>
+        <div class="table-wrap">
+          <table id="artifacts">
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>产物路径</th>
+                <th>工具</th>
+                <th>智能体</th>
+                <th>会话</th>
+                <th>结果</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>事件时间线</h2>
+        <ol id="timeline" class="timeline" aria-label="事件时间线" aria-live="polite"></ol>
+      </section>
+
+      <footer>
+        <span>记录保存在工作台自身的状态文档里，最多 4000 条事件、300 个关注会话（超出按会话最近活跃时间淘汰最旧的）；服务端会回收闲置 30 分钟的订阅，工作台在 25 分钟未重订或 10 分钟无记录投递时自动重订，订阅重建后自动补回填历史。历史记录由页面代取历史接口后提交，服务端会做形状校验、派生边白名单与每会话 60 秒节流。删除会话不会自动清台账：用「忘记」删单个会话、「清空记录」全部清除，卸载插件才彻底删除。老版本服务器不支持实时订阅时自动降级。</span>
+      </footer>
+    </main>
+  </body>
+</html>

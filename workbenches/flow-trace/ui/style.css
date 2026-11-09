@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 32px 24px;
+  color: var(--wb-fg, #1f2328);
+}
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+h2 {
+  font-size: 1.02rem;
+  margin: 0 0 8px;
+}
+section {
+  margin-top: 28px;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.toolbar .sep {
+  width: 1px;
+  height: 20px;
+  background: var(--wb-border, #d0d7de);
+  margin: 0 4px;
+}
+button {
+  cursor: pointer;
+  white-space: nowrap;
+}
+button:disabled {
+  cursor: default;
+}
+button.danger {
+  color: var(--wb-tone-danger-fg, #cf222e);
+  border-color: var(--wb-tone-danger-line, #ff818266);
+}
+.hint {
+  font-size: 0.82rem;
+  margin: 0 0 10px;
+}
+#error {
+  color: var(--wb-tone-danger-fg, #cf222e);
+  border: 1px solid var(--wb-tone-danger-line, #ff818266);
+  background: var(--wb-tone-danger-bg, #ffebe9);
+  border-radius: var(--wb-radius, 6px);
+  padding: 10px 12px;
+  white-space: pre-wrap;
+}
+#notice {
+  font-size: 0.85rem;
+}
+[hidden] {
+  display: none !important;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+.stat {
+  min-width: 96px;
+  padding: 10px 14px;
+  border: 1px solid var(--wb-border, #d0d7de);
+  border-radius: var(--wb-radius, 6px);
+  background: var(--wb-surface, #ffffff);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stat .num {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.stat .label {
+  font-size: 0.78rem;
+  color: var(--wb-muted, #656d76);
+}
+
+.graph {
+  border: 1px solid var(--wb-border, #d0d7de);
+  border-radius: var(--wb-radius, 6px);
+  background: var(--wb-surface, #ffffff);
+  padding: 8px;
+  overflow-x: auto;
+}
+.graph svg {
+  display: block;
+  min-width: 560px;
+}
+.graph-col {
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--wb-muted, #656d76);
+}
+.graph-label {
+  font-size: 11px;
+  fill: var(--wb-fg, #1f2328);
+}
+.graph-node {
+  cursor: default;
+}
+
+.watched {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--wb-border, #d0d7de);
+  border-radius: 999px;
+  padding: 4px 6px 4px 12px;
+  background: var(--wb-surface, #ffffff);
+  font-size: 0.85rem;
+  max-width: 100%;
+}
+.chip-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 320px;
+}
+.chip-x {
+  border-radius: 999px;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--wb-border, #d0d7de);
+  border-radius: var(--wb-radius, 6px);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+}
+th,
+td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--wb-border, #d0d7de);
+  vertical-align: top;
+}
+th {
+  color: var(--wb-muted, #656d76);
+  font-weight: 500;
+  white-space: nowrap;
+}
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+td.path {
+  white-space: normal;
+  word-break: break-all;
+  max-width: 320px;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.event {
+  border-bottom: 1px solid var(--wb-border, #d0d7de);
+  padding: 10px 2px;
+}
+.event:last-child {
+  border-bottom: 0;
+}
+.event-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.event-head time {
+  color: var(--wb-muted, #656d76);
+}
+.event-head .meta {
+  font-size: 0.78rem;
+}
+.event-body {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.88rem;
+}
+
+footer {
+  margin-top: 32px;
+  font-size: 0.78rem;
+  color: var(--wb-muted, #656d76);
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 20px 12px;
+  }
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 1.1rem;
+  }
+  .chip-text {
+    max-width: 180px;
+  }
+}

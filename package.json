@@ -1,0 +1,32 @@
+{
+  "name": "agent-flow-trace",
+  "version": "1.0.4",
+  "description": "A workbench tab that displays and records how tasks and artifacts flow between the agents of a project: a live flow graph, an event timeline and an artifact ledger, exportable as JSON, JSONL or Markdown.",
+  "keywords": [
+    "penguin-plugin",
+    "penguinharness",
+    "workbench",
+    "multi-agent",
+    "observability"
+  ],
+  "license": "Apache-2.0",
+  "author": {
+    "name": "day_day_up"
+  },
+  "files": [
+    "icon.svg",
+    "workbenches",
+    "README.md",
+    "LICENSE"
+  ],
+  "penguin": {
+    "title": "Agent Flow Trace",
+    "title_zh": "智能体流转轨迹",
+    "description_zh": "在 Agent 对话旁的工作台标签页中，显示并记录项目内多个智能体之间的任务派发与产物流转轨迹：实时流转图、事件时间线与产物台账，可一键导出 JSON / JSONL / Markdown 报告。",
+    "short_description": "Display and record multi-agent task and artifact flows in a workbench tab.",
+    "short_description_zh": "在工作台中显示并记录多智能体间的任务与产物流转轨迹。",
+    "category": "ai-app-development",
+    "icon": "icon.svg",
+    "preinstall": false
+  }
+}
